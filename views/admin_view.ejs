@@ -1,0 +1,29 @@
+<!-- views/admin_view.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin View - COVID Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h2>Admin View</h2>
+
+  
+  <div>
+    <h3>User List</h3>
+    <ul>
+      <% users.forEach(user => { %>
+        <li><%= user.username %></li>
+      <% }); %>
+    </ul>
+  </div>
+
+  
+</body>
+
+</html>
