@@ -110,8 +110,32 @@ app.post('/admin/delete/:id', async (req, res) => {
   }
 });
 
+
+//Dateaise Search;
+app.get("/datewise",async(req,res)=>{
+ res.render("datewise_data")
+  })
+
+app.get("/datewise/:date",async(req,res)=>{
+  const requesteDate=new date(req.params.date)
+  try{
+    const data= await covid.find({covid:requesteDate})
+    if (!covid) {
+      return res.status(404).json({ message: 'No COVID data found for the given date' });
+  }
+
+  res.json(data);
+} catch (error) {
+  res.status(500).json({ message: 'Internal server error' });
+}
+});
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+=======
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+
 });
