@@ -9,6 +9,21 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 });
+app.get('/highest_death_rates/:country', async (req, res) => {
+  const { country } = req.params;
+
+  try {
+    const highestDeathRates = await Death.aggregate([
+      { $match: { country: country } },
+      { $group: { _id: { $month: '$date' }, maxDeathRate: { $max: '$deathRate' } } }
+    ]);
+    res.json(highestDeathRates);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 
   // try {
   //   // Your authentication logic here
