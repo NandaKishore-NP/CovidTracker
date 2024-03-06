@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const mongoose = require("./models/db");
 const userRouter = require("./routes/user");
-=======
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -17,7 +16,6 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
-=======
 
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}))
@@ -38,7 +36,6 @@ app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
   res.render("home", { user: req.session.user || null });
-=======
 // Connect to MongoDB with updated options
 // Connect to MongoDB without useFindAndModify option
 mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
@@ -64,8 +61,6 @@ const User = require('./models/user');
 app.get('/', (req, res) => {
   res.redirect('/admin/dashboard');
 });
-
-=======
 
 // Routes
 app.get('/admin/dashboard', async (req, res) => {
@@ -170,7 +165,6 @@ app.post("/cityname", (req, res) => {
 });
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-=======
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
