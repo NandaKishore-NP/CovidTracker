@@ -1,30 +1,32 @@
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 
-let database;
+// let database;
 
-async function connectDB() {
+function connectDB() {
   try {
-    const client = await MongoClient.connect(`mongodb://localhost/27017${mongoHost}:${mongoPort}`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('Connected to MongoDB');
+    const client = mongoose
+      .connect("mongodb://127.0.0.1/CovidTracker", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+      .then(() => console.log("Connected to MongoDB..."))
+      .catch((err) => console.error("Could not connect to MongoDB...", err));
 
-    database = client.db(dbName);
-
+    // database = client.db(dbName);
   } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
+    console.error("Error connecting to MongoDB:", error);
   }
 }
 
-function getDB() {
-  if (!database) {
-    console.error('Database not connected. Call connectDB() first.');
-  }
-  return database;
-}
+// function getDB() {
+//   if (!database) {
+//     console.error("Database not connected. Call connectDB() first.");
+//   }
+//   return database;
+// }
 
 module.exports = {
   connectDB,
-  getDB,
+  // getDB,
 };
