@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest Death Rates by Month</title>
+</head>
+<body>
+    <h1>Highest Death Rates by Month for <%= country %></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Highest Death Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% highestDeathRates.forEach(rate => { %>
+                <tr>
+                    <td><%= rate._id %></td>
+                    <td><%= rate.maxDeathRate %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
