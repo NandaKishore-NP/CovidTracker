@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,21 +32,67 @@
       float: right;
     }
   </style>
+=======
+<!-- views/home.ejs -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+
 </head>
+
 <body>
   <nav>
-    <a href="/">Home</a>
-    <a href="/user/login">Login</a>
-    <% if (user) { %>
-      <a href="/user/logout" class="logout">Logout</a>
-    <% } %>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/covid/city">City Tracker</a></li>
+      <li><a href="/covid/datewise">Datewise Data</a></li>
+      <li><a href="/covid/deathrate">Death Rate</a></li>
+
+      <!-- Display "Login" or "Logout" based on user authentication -->
+      <% if (user && user.username) { %>
+        <li><a href="/user/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/user/login">Login</a></li>
+      <% } %>
+    </ul>
   </nav>
-  
-  <h1>Welcome to Home</h1>
-  <% if (user) { %>
-    <p>Hello, <%= user.username %>!</p>
-  <% } else { %>
-    <p>Please log in to access more features.</p>
-  <% } %>
+
+  <div>
+    <h1>Welcome to the COVID Tracker</h1>
+    <% if (user && user.username) { %>
+      <p>Logged in as: <%= user.username %> (Role: <%= user.role %>)</p>
+    <% } else { %>
+      <p>Not logged in</p>
+    <% } %>
+  </div>
+
+  <section>
+    <h2>COVID Tracker Information</h2>
+    <p>
+      Explore various features of our COVID Tracker to stay informed about the latest updates and statistics.
+    </p>
+
+    <h3>City Tracker</h3>
+    <p>
+      Track COVID data for different cities and view details based on your preferences.
+    </p>
+
+    <h3>Datewise Data</h3>
+    <p>
+      Analyze COVID data on a datewise basis and stay updated with historical information.
+    </p>
+
+    <h3>Death Rate</h3>
+    <p>
+      Explore death rates across different regions and countries, helping you make informed decisions.
+    </p>
+
+    <!-- Add more sections or features as needed -->
+
+  </section>
+
+  <!-- Add your scripts and other body content here -->
 </body>
-</html>
