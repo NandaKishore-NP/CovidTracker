@@ -40,7 +40,7 @@ router.post('/users/edit/:id', async (req, res) => {
 // Admin route to delete user data
 router.post('/users/delete/:id', async (req, res) => {
   try {
-    await User.findByIdAndRemove(req.params.id);
+    await User.findByIdAndDelete(req.params.id);
     res.redirect('/admin/users'); // Redirect to the list of users after deletion
   } catch (error) {
     console.error('Error deleting user data:', error);

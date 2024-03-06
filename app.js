@@ -4,8 +4,13 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/admin_dashboard', { useNewUrlParser: true, useUnifiedTopology: true });
+// Connect to MongoDB with updated options
+// Connect to MongoDB without useFindAndModify option
+mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 mongoose.connection.on('error', (err) => {
   console.error('MongoDB connection error:', err);
   process.exit(-1);
@@ -75,7 +80,20 @@ app.post('/admin/edit/:id', async (req, res) => {
 
 app.post('/admin/delete/:id', async (req, res) => {
   try {
-    await User.findByIdAndRemove(req.params.id);
+    const userId = req.params.id;
+
+    // Check if the user with the provided ID exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    // Delete the user using findOneAndRemove
+    await User.findOneAndRemove({ _id: userId });
+    
+    // Alternatively, you can use deleteOne
+    // await User.deleteOne({ _id: userId });
+
     res.redirect('/admin/dashboard');
   } catch (error) {
     console.error('Error deleting user:', error);
