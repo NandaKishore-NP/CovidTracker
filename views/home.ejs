@@ -1,3 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+   
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+    }
+
+    .logout {
+      float: right;
+    }
+  </style>
+=======
 <!-- views/home.ejs -->
 
 <head>
@@ -5,10 +40,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COVID Tracker</title>
   <link rel="stylesheet" href="/styles.css">
+
 </head>
 
 <body>
   <nav>
+
+    <a href="/">Home</a>
+    <a href="/user/login">Login</a>
+    <% if (user) { %>
+      <a href="/user/logout" class="logout">Logout</a>
+    <% } %>
+    <a href="/datewise">Datewise Data</a>
+
+=======
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/covid/city">City Tracker</a></li>
@@ -22,6 +67,7 @@
         <li><a href="/user/login">Login</a></li>
       <% } %>
     </ul>
+
   </nav>
 
   <div>
