@@ -1,6 +1,7 @@
 // routes/user.js
 const express = require('express');
 const router = express.Router(); // Make sure to define the router
+const {Register} = require('../models/user_login')
 
 router.get('/login', (req, res) => {
   res.render('login', { message: '' });
@@ -8,6 +9,23 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
+});
+
+router.get('/register', (req, res) => {
+  res.render('register', { message: '' });
+
+});
+
+router.post('/register', (req, res) => {
+  const { username,phoneNum,email, password } = req.body;
+  try{
+   Register.create({username,phoneNum,email, password})
+    res.redirect('/login')
+  }catch{
+    res.status(404).send("Oh uh, something went wrong")
+  }
+ 
+
 });
 
   // try {
