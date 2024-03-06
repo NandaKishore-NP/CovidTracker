@@ -1,4 +1,11 @@
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/Regester")
+.then(()=>{
+    console.log("mongodb connectrd")
+}).catch((err)=>{console.log(err)})
+
+
+module.exports
 
 // Connection URI for your MongoDB database
 const uri = 'mongodb://localhost/covidTracker';
@@ -35,3 +42,4 @@ async function closeConnection() {
 
 // Export the functions for use in other files
 module.exports = { connectToDatabase, closeConnection };
+

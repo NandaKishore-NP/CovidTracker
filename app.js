@@ -2,7 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+
 const app = express();
+
+
+app.set("view engine","ejs");
+app.use(express.urlencoded({extended:true}))
+
+
+
+app.use('/user', userRouter);
 
 // Connect to MongoDB with updated options
 // Connect to MongoDB without useFindAndModify option
