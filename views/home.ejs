@@ -1,0 +1,51 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    /* Add your styling for the navigation bar */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+    }
+
+    .logout {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/user/login">Login</a>
+    <% if (user) { %>
+      <a href="/user/logout" class="logout">Logout</a>
+    <% } %>
+  </nav>
+  
+  <h1>Welcome to Home</h1>
+  <% if (user) { %>
+    <p>Hello, <%= user.username %>!</p>
+  <% } else { %>
+    <p>Please log in to access more features.</p>
+  <% } %>
+</body>
+</html>

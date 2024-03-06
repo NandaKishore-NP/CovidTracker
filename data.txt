@@ -1,0 +1,443 @@
+[
+  {
+    "city": "Mumbai",
+    "year": 2021,
+    "country": "India",
+    "date": 15,
+    "month": 2,
+    "activeCase": 500,
+    "deathCase": 20,
+    "state": "Maharashtra"
+  },
+  {
+    "city": "Delhi",
+    "year": 2021,
+    "country": "India",
+    "date": 20,
+    "month": 5,
+    "activeCase": 250,
+    "deathCase": 10,
+    "state": "Delhi"
+  },
+  {
+    "city": "Chennai",
+    "year": 2021,
+    "country": "India",
+    "date": 10,
+    "month": 8,
+    "activeCase": 120,
+    "deathCase": 5,
+    "state": "Tamil Nadu"
+  },
+  {
+    "city": "Kolkata",
+    "year": 2021,
+    "country": "India",
+    "date": 5,
+    "month": 11,
+    "activeCase": 800,
+    "deathCase": 30,
+    "state": "West Bengal"
+  },
+  {
+    "city": "Bangalore",
+    "year": 2021,
+    "country": "India",
+    "date": 12,
+    "month": 4,
+    "activeCase": 300,
+    "deathCase": 15,
+    "state": "Karnataka"
+  },
+  {
+    "city": "Hyderabad",
+    "year": 2021,
+    "country": "India",
+    "date": 25,
+    "month": 7,
+    "activeCase": 150,
+    "deathCase": 8,
+    "state": "Telangana"
+  },
+  {
+    "city": "Ahmedabad",
+    "year": 2021,
+    "country": "India",
+    "date": 8,
+    "month": 10,
+    "activeCase": 200,
+    "deathCase": 12,
+    "state": "Gujarat"
+  },
+  {
+    "city": "Jaipur",
+    "year": 2021,
+    "country": "India",
+    "date": 18,
+    "month": 1,
+    "activeCase": 180,
+    "deathCase": 7,
+    "state": "Rajasthan"
+  },
+  {
+    "city": "Lucknow",
+    "year": 2021,
+    "country": "India",
+    "date": 21,
+    "month": 6,
+    "activeCase": 90,
+    "deathCase": 5,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "city": "Bhopal",
+    "year": 2021,
+    "country": "India",
+    "date": 3,
+    "month": 9,
+    "activeCase": 120,
+    "deathCase": 6,
+    "state": "Madhya Pradesh"
+  },
+  {
+    "city": "Chandigarh",
+    "year": 2021,
+    "country": "India",
+    "date": 14,
+    "month": 12,
+    "activeCase": 40,
+    "deathCase": 2,
+    "state": "Chandigarh"
+  },
+  {
+    "city": "Thiruvananthapuram",
+    "year": 2021,
+    "country": "India",
+    "date": 9,
+    "month": 3,
+    "activeCase": 75,
+    "deathCase": 4,
+    "state": "Kerala"
+  },
+  {
+    "city": "Bhubaneswar",
+    "year": 2021,
+    "country": "India",
+    "date": 22,
+    "month": 4,
+    "activeCase": 60,
+    "deathCase": 3,
+    "state": "Odisha"
+  },
+  {
+    "city": "Ranchi",
+    "year": 2021,
+    "country": "India",
+    "date": 5,
+    "month": 7,
+    "activeCase": 30,
+    "deathCase": 1,
+    "state": "Jharkhand"
+  },
+  {
+    "city": "Shimla",
+    "year": 2021,
+    "country": "India",
+    "date": 28,
+    "month": 10,
+    "activeCase": 15,
+    "deathCase": 1,
+    "state": "Himachal Pradesh"
+  },
+  {
+    "city": "Guwahati",
+    "year": 2021,
+    "country": "India",
+    "date": 13,
+    "month": 11,
+    "activeCase": 50,
+    "deathCase": 3,
+    "state": "Assam"
+  },
+  {
+    "city": "Panaji",
+    "year": 2021,
+    "country": "India",
+    "date": 1,
+    "month": 2,
+    "activeCase": 10,
+    "deathCase": 1,
+    "state": "Goa"
+  },
+  {
+    "city": "Raipur",
+    "year": 2021,
+    "country": "India",
+    "date": 17,
+    "month": 5,
+    "activeCase": 80,
+    "deathCase": 4,
+    "state": "Chhattisgarh"
+  },
+  {
+    "city": "Dehradun",
+    "year": 2021,
+    "country": "India",
+    "date": 11,
+    "month": 8,
+    "activeCase": 25,
+    "deathCase": 2,
+    "state": "Uttarakhand"
+  },
+  {
+    "city": "Aizawl",
+    "year": 2021,
+    "country": "India",
+    "date": 6,
+    "month": 11,
+    "activeCase": 5,
+    "deathCase": 0,
+    "state": "Mizoram"
+  },
+  {
+    "city": "Agartala",
+    "year": 2021,
+    "country": "India",
+    "date": 20,
+    "month": 1,
+    "activeCase": 15,
+    "deathCase": 1,
+    "state": "Tripura"
+  },
+  {
+    "city": "Imphal",
+    "year": 2021,
+    "country": "India",
+    "date": 9,
+    "month": 4,
+    "activeCase": 20,
+    "deathCase": 1,
+    "state": "Manipur"
+  },
+  {
+    "city": "Patna",
+    "year": 2021,
+    "country": "India",
+    "date": 7,
+    "month": 6,
+    "activeCase": 150,
+    "deathCase": 8,
+    "state": "Bihar"
+  },
+  {
+    "city": "Itanagar",
+    "year": 2021,
+    "country": "India",
+    "date": 19,
+    "month": 8,
+    "activeCase": 30,
+    "deathCase": 2,
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "city": "Dispur",
+    "year": 2021,
+    "country": "India",
+    "date": 2,
+    "month": 10,
+    "activeCase": 50,
+    "deathCase": 3,
+    "state": "Assam"
+  },
+  {
+    "city": "Shillong",
+    "year": 2021,
+    "country": "India",
+    "date": 14,
+    "month": 12,
+    "activeCase": 20,
+    "deathCase": 1,
+    "state": "Meghalaya"
+  },
+  {
+    "city": "Nagaland",
+    "year": 2021,
+    "country": "India",
+    "date": 27,
+    "month": 2,
+    "activeCase": 5,
+    "deathCase": 0,
+    "state": "Nagaland"
+  },
+  {
+    "city": "Port Blair",
+    "year": 2021,
+    "country": "India",
+    "date": 11,
+    "month": 5,
+    "activeCase": 15,
+    "deathCase": 1,
+    "state": "Andaman and Nicobar Islands"
+  },
+  {
+    "city": "Puducherry",
+    "year": 2021,
+    "country": "India",
+    "date": 4,
+    "month": 7,
+    "activeCase": 80,
+    "deathCase": 4,
+    "state": "Puducherry"
+  },
+  {
+    "city": "Gangtok",
+    "year": 2021,
+    "country": "India",
+    "date": 16,
+    "month": 9,
+    "activeCase": 25,
+    "deathCase": 2,
+    "state": "Sikkim"
+  },
+  {
+    "city": "Ranchi",
+    "year": 2021,
+    "country": "India",
+    "date": 29,
+    "month": 11,
+    "activeCase": 12,
+    "deathCase": 1,
+    "state": "Jharkhand"
+  },
+  {
+    "city": "Gandhinagar",
+    "year": 2021,
+    "country": "India",
+    "date": 23,
+    "month": 3,
+    "activeCase": 45,
+    "deathCase": 3,
+    "state": "Gujarat"
+  },
+  {
+    "city": "Amaravati",
+    "year": 2021,
+    "country": "India",
+    "date": 10,
+    "month": 6,
+    "activeCase": 100,
+    "deathCase": 6,
+    "state": "Andhra Pradesh"
+  },
+  {
+    "city": "Jammu",
+    "year": 2021,
+    "country": "India",
+    "date": 5,
+    "month": 9,
+    "activeCase": 30,
+    "deathCase": 2,
+    "state": "Jammu and Kashmir"
+  },
+  {
+    "city": "Srinagar",
+    "year": 2021,
+    "country": "India",
+    "date": 18,
+    "month": 1,
+    "activeCase": 70,
+    "deathCase": 4,
+    "state": "Jammu and Kashmir"
+  },
+  {
+    "city": "Dispur",
+    "year": 2021,
+    "country": "India",
+    "date": 12,
+    "month": 4,
+    "activeCase": 55,
+    "deathCase": 3,
+    "state": "Assam"
+  },
+  {
+    "city": "Kochi",
+    "year": 2021,
+    "country": "India",
+    "date": 8,
+    "month": 8,
+    "activeCase": 80,
+    "deathCase": 5,
+    "state": "Kerala"
+  },
+  {
+    "city": "Aizawl",
+    "year": 2021,
+    "country": "India",
+    "date": 27,
+    "month": 10,
+    "activeCase": 15,
+    "deathCase": 1,
+    "state": "Mizoram"
+  },
+  {
+    "city": "Gaya",
+    "year": 2021,
+    "country": "India",
+    "date": 14,
+    "month": 1,
+    "activeCase": 25,
+    "deathCase": 2,
+    "state": "Bihar"
+  },
+  {
+    "city": "Dhanbad",
+    "year": 2021,
+    "country": "India",
+    "date": 3,
+    "month": 3,
+    "activeCase": 40,
+    "deathCase": 2,
+    "state": "Jharkhand"
+  },
+  {
+    "city": "Thane",
+    "year": 2021,
+    "country": "India",
+    "date": 19,
+    "month": 5,
+    "activeCase": 120,
+    "deathCase": 8,
+    "state": "Maharashtra"
+  },
+  {
+    "city": "Navi Mumbai",
+    "year": 2021,
+    "country": "India",
+    "date": 9,
+    "month": 7,
+    "activeCase": 60,
+    "deathCase": 4,
+    "state": "Maharashtra"
+  },
+  {
+    "city": "Kanpur",
+    "year": 2021,
+    "country": "India",
+    "date": 2,
+    "month": 9,
+    "activeCase": 35,
+    "deathCase": 2,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "city": "Noida",
+    "year": 2021,
+    "country": "India",
+    "date": 15,
+    "month": 11,
+    "activeCase": 70,
+    "deathCase": 5,
+    "state": "Uttar Pradesh"
+  }
+  ]
+ 
