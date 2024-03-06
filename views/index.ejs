@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>email</th>
+                    <th>role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach((user, index) => { %>
+                    <tr>
+                        <td><%= user.name %></td>
+                        <td><%= user.password %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.role %></td>
+                        <td>
+                            <a class="btn btn-primary" href="/edit/<%= game._id %>">Edit</a>
+                            <a class="btn btn-danger" href="/delete/<%= game._id %>" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="/add">Add New User</a>
+    </div>
+</body>
+
+</html>

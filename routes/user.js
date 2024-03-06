@@ -1,15 +1,21 @@
 // routes/user.js
 const express = require('express');
+
 const router = express.Router(); // Make sure to define the router
 const {Register} = require('../models/user_login')
+
+const router = express.Router();
+const User = require('../models/user_login');
+
 
 router.get('/login', (req, res) => {
   res.render('login', { message: '' });
 });
 
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  // Your authentication logic using the User model
 });
+
 
 router.get('/register', (req, res) => {
   res.render('register', { message: '' });
@@ -41,6 +47,7 @@ router.post('/register', (req, res) => {
   //   console.error(error);
   //   res.status(500).send('Internal Server Error');
   // }
+
 
 router.get('/logout', (req, res) => {
   req.session.destroy((err) => {
