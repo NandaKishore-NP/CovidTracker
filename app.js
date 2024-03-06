@@ -1,3 +1,11 @@
+
+// app.js
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const mongoose = require("./models/db");
+const userRouter = require("./routes/user");
+=======
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,13 +14,31 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
+app.set("view engine", "ejs");
+
+app.use(express.urlencoded({ extended: true }));
+=======
+
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}))
 
 
 
-app.use('/user', userRouter);
 
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+
+app.use("/user", userRouter);
+
+app.get("/", (req, res) => {
+  res.render("home", { user: req.session.user || null });
+=======
 // Connect to MongoDB with updated options
 // Connect to MongoDB without useFindAndModify option
 mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
@@ -128,8 +154,17 @@ app.get("/datewise/:date",async(req,res)=>{
 } catch (error) {
   res.status(500).json({ message: 'Internal server error' });
 }
-});
 
+});
+app.post("/cityname", (req, res) => {
+  try {
+    const { city, year } = req.body;
+
+    res.send("Check City and Year");
+  } catch (err) {
+    console.log("error", err);
+  }
+});
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 =======
