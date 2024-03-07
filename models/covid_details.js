@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('./db')
 
 const covidSchema = new mongoose.Schema({
     city: String,
@@ -11,6 +12,6 @@ const covidSchema = new mongoose.Schema({
     state: String,
 });
 
-const covid = mongoose.model('covid', covidSchema);
+const covid = mongoose.model('covids', covidSchema);
 
 module.exports = covid;

@@ -1,27 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highest Death Rates by Month</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Highest death rate</title>
+  <style>
+    .covid-image {
+      font-family: 'Times New Roman', Times, serif;
+      background-image: url("../assests/covide.jpeg"); 
+      background-size: cover; 
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .world-width {
+      width: 600px;
+      backdrop-filter: blur(0px);
+      background-color: rgba(255,255,255,0.3);
+      border: none;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px 80px;
+    }
+
+    table, tr, td, th {
+      border: 1px solid black;
+    }
+   
+  </style>
 </head>
 <body>
-    <h1>Highest Death Rates by Month for <%= country %></h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Month</th>
-                <th>Highest Death Rate</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% highestDeathRates.forEach(rate => { %>
+    <div class="covid-image">
+      <div class="container card world-width">
+        <form action="" method="post"> 
+          <div>
+            <h4 class="death text-center font-weight-bold">Check Death Rate</h4>
+            <label for="state" class="my-3 font-weight-bold">Enter state name</label>
+            <input type="text" class="form-control my-3" name="state" id="state">
+            <button class="btn btn-success my-3" type="submit">Search</button>
+          </div>
+        </form>
+    
+            <table>
+              <tr>
+                <th>State</th>
+                <th>City</th>
+                <th>Date</th>
+                <th>DeathCases</th>
+              </tr>
+          
+              <% countryDetails.forEach((covid) => { %>
                 <tr>
-                    <td><%= rate._id %></td>
-                    <td><%= rate.maxDeathRate %></td>
+                  <td><%= covid.state %></td>
+                  <td><%= covid.city %></td>
+                  <td><%= covid.date %></td>
+                  <td><%= covid.deathCase %></td> 
                 </tr>
-            <% }); %>
-        </tbody>
-    </table>
-</body>
-</html>
+              <% }); %>
+          
+            </table>
+          
+         
+  
+      </div>
+    </div>
+  </body>
+  </html>
+
+
+ 
+  

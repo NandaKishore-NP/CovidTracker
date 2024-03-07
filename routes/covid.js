@@ -1,12 +1,19 @@
-// routes/covid.js
 const express = require('express');
 const router = express.Router();
 const CovidData = require('../models/covid_details');
 
-router.get('/city-view', (req, res) => {
-  res.render('city_view');
+
+
+router.post("/countryname", async (req, res) => {
+    console.log(req.body);
+    const { state } = req.body;
+    const countryDetails = await CovidData.find({ state });
+    res.render("worldwide_data", { countryDetails });
+    console.log(countryDetails);
 });
 
-// Add other COVID-related routes based on your requirements
+router.get("/countryname", (req, res) => {
+  res.render("worldwide_data", { countryDetails: [] });
+});
 
 module.exports = router;

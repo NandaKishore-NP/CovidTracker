@@ -1,30 +1,15 @@
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose')
+// const schema =require('./covid_details')
 
-let database;
 
-async function connectDB() {
-  try {
-    const client = await MongoClient.connect(`mongodb://localhost/27017${mongoHost}:${mongoPort}`, {
+     mongoose.connect("mongodb://localhost:27017/covidTracker", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
-    console.log('Connected to MongoDB');
+    })
+    .then(()=>console.log("Connected to Mongodb"))
+    .catch((err)=>console.Consolelog("error"))
+    
 
-    database = client.db(dbName);
 
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-  }
-}
 
-function getDB() {
-  if (!database) {
-    console.error('Database not connected. Call connectDB() first.');
-  }
-  return database;
-}
-
-module.exports = {
-  connectDB,
-  getDB,
-};
+module.exports ;
