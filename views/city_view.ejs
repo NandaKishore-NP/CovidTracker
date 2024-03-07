@@ -85,4 +85,29 @@
       </div>
     </div>
   </body>
+=======
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City View</title>
+  <!-- Add your CSS links or styles here -->
+</head>
+<body>
+  <h1>Covid Data Tracker - City View</h1>
+
+  <ul>
+    <% covidData.forEach(data => { %>
+      <li>
+        <p>City: <%= data.city %></p>
+        <p>Country: <%= data.country %></p>
+        <p>Date: <%= data.date %></p>
+        <p>Death Rate: <%= data.deathRate %></p>
+      </li>
+    <% }); %>
+  </ul>
+
+  <!-- Add any additional content or styling as needed -->
+</body>
+
 </html>
