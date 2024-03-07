@@ -6,23 +6,31 @@ const session = require("express-session");
 const mongoose = require("./models/db");
 const userRouter = require("./routes/user");
 
+
 const covidRouter = require("./routes/covid");
 const covid = require("./models/covid_details");
 const path = require("path");
-
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-
 
 
 const app = express();
 
 
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+
+
+app.use('/user', userRouter,covidRouter);
+app.use("/assests",express.static(path.join(__dirname,"assests")));
+app.get('/', (req, res) => {
+  res.redirect('home', { user: req.session.user || null });
+});
+
+
+
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
-=======
 
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}))
@@ -38,17 +46,16 @@ app.use(
   })
 );
 
-<<<<<<< HEAD
+
 app.use("/user", userRouter, covidRouter);
 app.use("/assests", express.static(path.join(__dirname, "assests")));
-=======
 
-app.use("/user", userRouter);
 
->>>>>>> 9658aacdd0862c6ddb178d2f2c121734d34e2761
+
+
+
 app.get("/", (req, res) => {
   res.render("home", { user: req.session.user || null });
-=======
 // Connect to MongoDB with updated options
 // Connect to MongoDB without useFindAndModify option
 mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
@@ -85,6 +92,7 @@ app.get('/admin/dashboard', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 app.get('/admin/create', (req, res) => {
   res.render('createUser');
@@ -167,9 +175,15 @@ app.get("/datewise/:date",async(req,res)=>{
 
 });
 
+
+    res.send("Check City and Year");
+  } catch (err) {
+    console.log("error", err);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-=======
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -1,4 +1,21 @@
 
+const mongoose = require('mongoose')
+// const schema =require('./covid_details')
+
+
+     mongoose.connect("mongodb://localhost:27017/covidTracker", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(()=>console.log("Connected to Mongodb"))
+    .catch((err)=>console.Consolelog("error"))
+    
+
+
+
+module.exports ;
+=======
+
 // const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 const sch = require("./covid_details");
@@ -22,7 +39,7 @@ mongoose
 //   return database;
 // }
 
-<<<<<<< HEAD
+
 module.exports;
 =======
 module.exports = {
@@ -74,5 +91,3 @@ async function closeConnection() {
 
 // Export the functions for use in other files
 module.exports = { connectToDatabase, closeConnection };
-
->>>>>>> 9658aacdd0862c6ddb178d2f2c121734d34e2761

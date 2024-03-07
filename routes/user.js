@@ -1,5 +1,5 @@
 // routes/user.js
-<<<<<<< HEAD
+
 const express = require("express");
 const covid = require("../models/covid_details");
 const router = express.Router();
@@ -12,16 +12,15 @@ const {Register} = require('../models/user_login')
 const router = express.Router();
 const User = require('../models/user_login');
 
->>>>>>> 9658aacdd0862c6ddb178d2f2c121734d34e2761
 
 router.get("/login", (req, res) => {
   res.render("login", { message: "" });
 });
 
-<<<<<<< HEAD
+
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-=======
+
 router.post('/login', async (req, res) => {
   // Your authentication logic using the User model
 });
@@ -42,17 +41,32 @@ router.post('/register', (req, res) => {
   }
  
 
->>>>>>> 9658aacdd0862c6ddb178d2f2c121734d34e2761
+
 });
 
 
+  // try {
+  //   const highestDeathRates = await Death.aggregate([
+  //     { $match: { country: country } },
+  //     { $group: { _id: { $month: '$date' }, maxDeathRate: { $max: '$deathRate' } } }
+  //   ]);
+  //   res.json(highestDeathRates);
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({ message: 'Internal server error' });
+  // }
 
-<<<<<<< HEAD
+
+  // try {
+  //   // Your authentication logic here
+
+
+
+
 router.get("/logout", (req, res) => {
-=======
 
 router.get('/logout', (req, res) => {
->>>>>>> 9658aacdd0862c6ddb178d2f2c121734d34e2761
+
   req.session.destroy((err) => {
     if (err) {
       console.error(err);
