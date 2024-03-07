@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-=======
-// routes/covid.js
 
->>>>>>> d467ce348391a7857af1815b5c19021c0d2e6a5e
+
 const express = require('express');
 const router = express.Router();
 const CovidDetails = require('../models/covid_details');
 
-<<<<<<< HEAD
 
 
 router.post("/countryname", async (req, res) => {
@@ -21,7 +17,7 @@ router.post("/countryname", async (req, res) => {
 router.get("/countryname", (req, res) => {
   res.render("worldwide_data", { countryDetails: [] });
 });
-=======
+
 // Route to render the City Tracker view
 router.get('/city-tracker', async (req, res) => {
   try {
@@ -31,14 +27,32 @@ router.get('/city-tracker', async (req, res) => {
     // Extract unique city names
     const cityNames = Array.from(new Set(cityData.map(data => data.cityName)));
 
-    res.render('city_view', { cityData, cityNames });
-  } catch (error) {
-    console.error('Error fetching city data:', error);
-    res.status(500).send('Internal Server Error');
-  }
+const express = require('express');
+const router = express.Router();
+const CovidData = require('../models/covid_details');
+
+
+router.get('/city-view', (req, res) => {
+  res.render('city_view');
 });
 
-// Add more routes or functionalities related to COVID tracker as needed
->>>>>>> d467ce348391a7857af1815b5c19021c0d2e6a5e
+
+//Dateaise Search;
+router.post("/datewise",async(req,res)=>{
+  const {date} = req.body;
+  //console.log(date)
+  const covidDetails= await CovidData.find({date});
+  //console.log(covidDetails)
+  res.render("datewise_data",{covidDetails})
+  });
+  
+  
+  router.get("/datewise",async(req,res)=>{
+    res.render("datewise_data",{covidDetails:[]});
+     })
+  
+
+
+
 
 module.exports = router;
