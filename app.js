@@ -8,10 +8,33 @@ const userRouter = require("./routes/user");
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
+const session = require('express-session');
+const mongoose = require('./models/db');
+const userRouter = require('./routes/user');
+const covidRouter = require('./routes/covid');
+const covid =require('./models/covid_details')
+const path = require('path');
+=======
 
 
+>>>>>>> d467ce348391a7857af1815b5c19021c0d2e6a5e
 const app = express();
 
+<<<<<<< HEAD
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+
+
+app.use('/user', userRouter,covidRouter);
+app.use("/assests",express.static(path.join(__dirname,"assests")));
+app.get('/', (req, res) => {
+  res.redirect('home', { user: req.session.user || null });
+});
+
+
+=======
 
 app.set("view engine", "ejs");
 
@@ -163,6 +186,7 @@ app.post("/cityname", (req, res) => {
     console.log("error", err);
   }
 });
+>>>>>>> d467ce348391a7857af1815b5c19021c0d2e6a5e
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 // Start the server
