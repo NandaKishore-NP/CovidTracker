@@ -1,62 +1,100 @@
-<!-- views/home.ejs -->
-
+<%- include('header.ejs') %>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COVID Tracker</title>
-  <link rel="stylesheet" href="/styles.css">
+  <!-- <link rel="stylesheet" href="/styles.css"> -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      background-color: #333 transparent;
+      color: white;
+      padding: 8px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      text-align: center;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; /* Center align items vertically */
+      height: 100%; /* Set the height to 100% to center vertically */
+    }
+
+    .navbar li {
+      margin: 0 20px;
+      text-align: center;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-overflow: ellipsis;
+    }
+
+    .navbar a:hover {
+      background-color: #e83e06;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 70px;
+    }
+
+    .card {
+      flex: 1 1 600px;
+      margin: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/covid/city">City Tracker</a></li>
-      <li><a href="/covid/datewise">Datewise Data</a></li>
-      <li><a href="/covid/deathrate">Death Rate</a></li>
-
-      <!-- Display "Login" or "Logout" based on user authentication -->
-      <% if (user && user.username) { %>
-        <li><a href="/user/logout">Logout</a></li>
-      <% } else { %>
-        <li><a href="/user/login">Login</a></li>
-      <% } %>
-    </ul>
-  </nav>
-
-  <div>
-    <h1>Welcome to the COVID Tracker</h1>
-    <% if (user && user.username) { %>
-      <p>Logged in as: <%= user.username %> (Role: <%= user.role %>)</p>
-    <% } else { %>
-      <p>Not logged in</p>
-    <% } %>
+  <div class="navbar">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/user/city_view">City Tracker</a></li>
+        <li><a href="/user/datewise_data">Datewise Data</a></li>
+        <li><a href="/user/worldwide_data">Death Rate</a></li>
+        <!-- Display "Login" or "Logout" based on user authentication -->
+        <% if (user && user.username) { %>
+          <li><a href="/user/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/user/login">Login</a></li>
+        <% } %>
+      </ul>
+    </nav>
   </div>
 
-  <section>
-    <h2>COVID Tracker Information</h2>
-    <p>
-      Explore various features of our COVID Tracker to stay informed about the latest updates and statistics.
-    </p>
+  <div class="container">
+    <!-- ElfSight Widget Card 1 -->
+    <div class="card elfsight-card">
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <div class="elfsight-app-3228260a-4f5d-4b92-a9e5-ea1aeb712fb0" data-elfsight-app-lazy></div>
+    </div>
 
-    <h3>City Tracker</h3>
-    <p>
-      Track COVID data for different cities and view details based on your preferences.
-    </p>
+    
 
-    <h3>Datewise Data</h3>
-    <p>
-      Analyze COVID data on a datewise basis and stay updated with historical information.
-    </p>
-
-    <h3>Death Rate</h3>
-    <p>
-      Explore death rates across different regions and countries, helping you make informed decisions.
-    </p>
-
-    <!-- Add more sections or features as needed -->
-
-  </section>
-
-  <!-- Add your scripts and other body content here -->
 </body>

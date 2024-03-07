@@ -1,25 +1,51 @@
 // routes/covid.js
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const CovidDetails = require('../models/covid_details');
+const covid = require("../models/covid_details");
 
-// Route to render the City Tracker view
-router.get('/city-tracker', async (req, res) => {
-  try {
-    // Fetch all city data from MongoDB
-    const cityData = await CovidDetails.find({});
-    
-    // Extract unique city names
-    const cityNames = Array.from(new Set(cityData.map(data => data.cityName)));
+// router.get("/city-view", (req, res) => {
+//   res.render("city_view");
+// });
 
-    res.render('city_view', { cityData, cityNames });
-  } catch (error) {
-    console.error('Error fetching city data:', error);
-    res.status(500).send('Internal Server Error');
-  }
+// Add other COVID-related routes based on your requirements
+ 
+router.post("/city_view", async (req, res) => {
+  const { id, city, month } = req.body;
+  const cityDetails = await covid.find({ city, month });
+  
+  res.render("city_view", { cityDetails });
+});
+router.get("/city_view", (req, res) => {
+  res.render("city_view", { cityDetails: [] });
 });
 
-// Add more routes or functionalities related to COVID tracker as needed
+
+
+
+
+router.post("/datewise_data", async (req, res) => {
+  const { date } = req.body;
+  const dateDetails = await covid.find({   date });
+ 
+  res.render("datewise_data", { dateDetails });
+});
+router.get("/datewise_data", (req, res) => {
+  res.render("datewise_data", { dateDetails: [] });
+});
+
+
+
+router.post("/worldwide_data", async (req, res) => {
+  console.log(req.body);
+  const { state } = req.body;
+  const countryDetails = await covid.find({ state });
+  res.render("worldwide_data", { countryDetails });
+  console.log(countryDetails);
+});
+
+router.get("/worldwide_data", (req, res) => {
+res.render("worldwide_data", { countryDetails: [] });
+});
+
 
 module.exports = router;

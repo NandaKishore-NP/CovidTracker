@@ -1,36 +1,41 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
+const covidRouter = require("./routes/covid");
+const covid = require("./models/covid_details");
+// const userRouter = require("./routes/user");
 
 const app = express();
 
-// Connect to MongoDB with updated options
-// Connect to MongoDB without useFindAndModify option
-mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
+mongoose.connect('mongodb://localhost:27017/covidTracker', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 mongoose.connection.on('error', (err) => {
   console.error('MongoDB connection error:', err);
   process.exit(-1);
 });
 
-// Set up middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+app.use('/assests', express.static(path.join(__dirname, 'assests')));
 
-// Define User model
 const User = require('./models/user');
 
-// Redirect root path to the admin dashboard
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+
+app.use(loginRouter);
+app.use(registerRouter);
+app.use("/user", covidRouter);
+
 app.get('/', (req, res) => {
-  res.redirect('/admin/dashboard');
+  res.redirect('/login');
 });
 
-// Routes
 app.get('/admin/dashboard', async (req, res) => {
   try {
     const users = await User.find();
@@ -82,17 +87,17 @@ app.post('/admin/delete/:id', async (req, res) => {
   try {
     const userId = req.params.id;
 
-    // Check if the user with the provided ID exists
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).send('User not found');
     }
 
-    // Delete the user using findOneAndRemove
-    await User.findOneAndRemove({ _id: userId });
-    
-    // Alternatively, you can use deleteOne
-    // await User.deleteOne({ _id: userId });
+    const result = await User.deleteOne({ _id: userId });
+
+    // delete user
+    if (result.deletedCount === 0) {
+      return res.status(500).send('Failed to delete user');
+    }
 
     res.redirect('/admin/dashboard');
   } catch (error) {
@@ -100,6 +105,11 @@ app.post('/admin/delete/:id', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+app.get('/home', (req, res) => {
+  res.render('home', { user: req.user });
+});
+
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
